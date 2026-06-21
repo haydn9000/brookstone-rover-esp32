@@ -4,7 +4,8 @@ Firmware that converts a Brookstone Rover spy tank (tracked chassis, two DC
 motors) into a Bluetooth-gamepad-controlled robot. The original WiFi board is
 removed and replaced with an **ESP32 DevKit V1** driving a **DRV8833** dual
 H-bridge, with a **BLE gamepad** (PS4 / PS5 / Xbox / generic) as the controller
-via [Bluepad32](https://github.com/ricardoquesada/bluepad32).
+via [Bluepad32](https://github.com/ricardoquesada/bluepad32). Tested with an
+Xbox One Wireless Controller.
 
 ![The converted rover driving around](img/rover-in-action.gif)
 
@@ -103,9 +104,14 @@ with the precompiled Bluepad32 build via `platform_packages`, so no extra
 
 ## Pairing a controller
 
+Tested with an **Xbox One Wireless Controller** (Bluetooth model). PS4, PS5,
+and other Bluepad32-supported gamepads should also work.
+
 1. Flash the firmware and open the serial monitor.
-2. Put the gamepad into pairing mode (for example PS4: hold **Share + PS** until
-   the light bar flashes).
+2. Put the gamepad into pairing mode. For an Xbox One controller, turn it on
+   with the **Xbox** button, then hold the small **Pair** button on the top
+   edge until the Xbox light flashes quickly. (PS4: hold **Share + PS** until
+   the light bar flashes.)
 3. The ESP32 scans on boot. On success the monitor prints
    `Controller connected, index=0`.
 4. To clear stored pairings, uncomment `BP32.forgetBluetoothKeys();` in

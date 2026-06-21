@@ -7,7 +7,8 @@ repository.
 
 Firmware for a Brookstone Rover tank chassis converted to **ESP32 + DRV8833 +
 BLE gamepad** control. Single-sketch Arduino/PlatformIO project. The entire
-application lives in [src/main.cpp](src/main.cpp).
+application lives in [src/main.cpp](src/main.cpp). Tested with an Xbox One
+Wireless Controller (Bluepad32 also supports PS4/PS5/generic).
 
 ## Repository layout
 
