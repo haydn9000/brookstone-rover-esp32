@@ -52,8 +52,12 @@ Xbox One Wireless Controller.
 
 - Battery **+** goes through the power switch, then splits to **buck IN+** and
   **DRV8833 VCC** (motor supply, about 7.6 V).
-- Buck **OUT+ (5 V)** goes to ESP32 **VIN**.
-- All grounds are common: battery minus, buck GND, ESP32 GND, DRV8833 GND.
+- Buck **OUT+ (5 V)** goes to ESP32 **VIN**, and buck **OUT- (GND)** goes to
+  ESP32 **GND**. The ESP32 takes both its 5 V and its ground from the buck
+  output, not from the battery directly.
+- Battery minus ties to the buck input ground and the DRV8833 GND. Because the
+  buck is non-isolated, its input and output grounds are the same node, so
+  every ground (battery, buck, ESP32, DRV8833) ends up common.
 
 ### Enable pin (important)
 
